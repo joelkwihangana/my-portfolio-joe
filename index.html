@@ -1,13 +1,96 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <link rel="stylesheet" href="/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
+    />
+    <title>Joel Kwihangana - Portfolio</title>
   </head>
   <body>
-    <div id="app"></div>
-    <script type="module" src="/main.js"></script>
+    <header>
+      <nav>
+        <h1>Joel Kwihangana</h1>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section id="about" data-aos="fade-up">
+      <div class="container">
+        <h2>About Me</h2>
+        <p>
+          Hello, I'm <span class="highlight">Joel Kwihangana</span>, a
+          passionate MERN stack developer and UI/UX designer.
+        </p>
+        <p>
+          Graduated in Information Technology from the University Of Rwanda
+          College of Science and Technology - CST.
+        </p>
+        <p>
+          During my academic journey, I gained valuable experiences and honed my
+          skills in various areas of technology.
+        </p>
+      </div>
+    </section>
+
+    <section id="projects" data-aos="fade-up">
+      <div class="container">
+        <h2>Projects</h2>
+        <div class="project-card">
+          <img src="/assets/sushi-website.jpg" alt="Project Thumbnail" />
+          <h3>Sushi Website</h3>
+          <p>
+            Description: The Sushiman Clone project is a responsive website that
+            brings the delightful experience of a Japanese food delivery service
+            to the digital world. Built using HTML, CSS, and JavaScript, this
+            project is a recreation of the original "Sushiman" restaurant
+            website. It showcases the menu, popular food items, trending sushi,
+            and drinks, and even provides a subscription service for special
+            offers. The website offers a seamless user experience with smooth
+            animations and interactive features.
+          </p>
+          <a
+            href="https://teal-liger-66fa35.netlify.app/"
+            class="btn"
+            target="_blank"
+            >View Project</a
+          >
+        </div>
+        <!-- ... (repeat for other projects) ... -->
+      </div>
+    </section>
+
+    <section id="skills" data-aos="fade-up">
+      <div class="container">
+        <h2>Skills</h2>
+        <ul class="skills-list">
+          <li>HTML5 / CSS3</li>
+          <li>JavaScript</li>
+          <li>React.js</li>
+          <li>Node.js</li>
+          <li>MongoDB</li>
+          <li>UI/UX Design</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="contact" data-aos="fade-up">
+      <div class="container">
+        <h2>Contact Me</h2>
+        <p>Email: your.email@example.com</p>
+        <p>Phone: (123) 456-7890</p>
+      </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script src="/main.js"></script>
   </body>
 </html>
