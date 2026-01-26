@@ -31,8 +31,8 @@ export default function CaseStudies() {
               Featured work
             </h2>
             <p className="mt-2 max-w-2xl text-slate-600">
-              Case studies that show how I think, build, and deploy
-              production-ready systems.
+              Case studies that show how I think, build, deploy, and maintain
+              production systems.
             </p>
           </div>
 
@@ -50,58 +50,87 @@ export default function CaseStudies() {
           {caseStudies.map((p) => (
             <article
               key={p.slug}
-              className="group rounded-2xl border border-slate-200 bg-white p-6 transition hover:-translate-y-0.5 hover:shadow-sm"
+              className="group overflow-hidden rounded-2xl border border-slate-200 bg-white transition hover:-translate-y-0.5 hover:shadow-sm"
             >
-              <header>
-                <h3 className="text-lg font-semibold text-slate-900">
-                  {p.title}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate-600">
-                  {p.subtitle}
-                </p>
-              </header>
-
-              <div className="mt-5 space-y-3">
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-                    Problem
-                  </p>
-                  <p className="mt-1 text-sm text-slate-700">{p.problem}</p>
-                </div>
-
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-                    Solution
-                  </p>
-                  <p className="mt-1 text-sm text-slate-700">{p.solution}</p>
-                </div>
-
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-                    Impact
-                  </p>
-                  <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-slate-700">
-                    {p.impact.map((x) => (
-                      <li key={x}>{x}</li>
-                    ))}
-                  </ul>
-                </div>
+              <div className="border-b border-slate-200 bg-slate-50">
+                <img
+                  src={p.image.src}
+                  alt={p.image.alt}
+                  className="h-44 w-full object-cover transition group-hover:scale-[1.02]"
+                  loading="lazy"
+                />
               </div>
 
-              <div className="mt-5 flex flex-wrap gap-2">
-                {p.stack.map((s) => (
-                  <Badge key={s}>{s}</Badge>
-                ))}
-              </div>
+              <div className="p-6">
+                <header>
+                  <h3 className="text-lg font-semibold text-slate-900">
+                    {p.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-slate-600">
+                    {p.subtitle}
+                  </p>
 
-              <footer className="mt-6 flex items-center gap-4">
-                {p.links.live && (
-                  <ExternalLink href={p.links.live}>Live</ExternalLink>
-                )}
-                {p.links.github && (
-                  <ExternalLink href={p.links.github}>Code</ExternalLink>
-                )}
-              </footer>
+                  <p className="mt-3 text-sm text-slate-700">
+                    <span className="font-medium text-slate-900">Role:</span>{" "}
+                    {p.role}
+                  </p>
+                </header>
+
+                <div className="mt-5 space-y-4">
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                      Problem
+                    </p>
+                    <p className="mt-1 text-sm text-slate-700">{p.problem}</p>
+                  </div>
+
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                      Solution
+                    </p>
+                    <p className="mt-1 text-sm text-slate-700">{p.solution}</p>
+                  </div>
+
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                      Impact
+                    </p>
+                    <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-slate-700">
+                      {p.impact.map((x) => (
+                        <li key={x}>{x}</li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {p.ops && p.ops.length > 0 && (
+                    <div className="rounded-xl border border-slate-200 bg-slate-50 p-4">
+                      <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                        Ops notes
+                      </p>
+                      <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-slate-700">
+                        {p.ops.map((x) => (
+                          <li key={x}>{x}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </div>
+
+                <div className="mt-5 flex flex-wrap gap-2">
+                  {p.stack.map((s) => (
+                    <Badge key={s}>{s}</Badge>
+                  ))}
+                </div>
+
+                <footer className="mt-6 flex items-center gap-4">
+                  {p.links.live && (
+                    <ExternalLink href={p.links.live}>Live</ExternalLink>
+                  )}
+                  {p.links.github && (
+                    <ExternalLink href={p.links.github}>Code</ExternalLink>
+                  )}
+                </footer>
+              </div>
             </article>
           ))}
         </div>
