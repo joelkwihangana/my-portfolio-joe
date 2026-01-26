@@ -10,7 +10,7 @@ import SystemThinking from "../sections/SystemThinking";
 
 export default function AppShell() {
   return (
-    <div className="min-h-screen bg-white text-slate-900">
+    <div className="min-h-screen bg-white text-slate-900 [background-image:radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:24px_24px]">
       <Navbar />
 
       <main>
