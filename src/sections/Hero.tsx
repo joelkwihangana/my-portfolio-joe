@@ -8,22 +8,23 @@ export default function Hero() {
       <Container>
         <div className="flex flex-col gap-8">
           <div className="flex flex-wrap gap-2">
-            <Badge>Fullstack DevOps</Badge>
-            <Badge>React + TypeScript</Badge>
-            <Badge>FastAPI</Badge>
+            <Badge>Backend + DevOps</Badge>
+            <Badge>FastAPI • Node.js</Badge>
+            <Badge>Linux • Nginx • VPS</Badge>
             <Badge>Docker • CI/CD</Badge>
-            <Badge>AWS • Linux</Badge>
+            <Badge>React + TypeScript</Badge>
           </div>
 
-          <div className="max-w-3xl">
+          <div className="lg:max-w-full sm:max-w-2xl md:max-w-3xl">
             <h1 className="text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl">
               I build and deploy reliable web systems, not just websites.
             </h1>
 
             <p className="mt-4 text-lg leading-relaxed text-slate-600">
-              Technical Support Engineer (L2) transitioning into Fullstack
-              DevOps. I ship React frontends, FastAPI backends, and production
-              deployments with clean automation and practical security thinking.
+              Technical Support Engineer (L2) transitioning into a
+              backend-focused Fullstack DevOps role. I build APIs with FastAPI
+              and Node.js, deploy and maintain production systems on Linux VPS
+              (Hostinger), and build React frontends when the product needs it.
             </p>
 
             <div className="mt-6 flex flex-wrap items-center gap-3">
@@ -52,9 +53,11 @@ export default function Hero() {
               </p>
             </div>
             <div className="rounded-2xl border border-slate-200 bg-white p-4">
-              <p className="text-sm font-medium text-slate-900">Ship fast</p>
+              <p className="text-sm font-medium text-slate-900">
+                Production delivery
+              </p>
               <p className="mt-1 text-sm text-slate-600">
-                Clean UI, APIs, and deployments that work.
+                APIs, databases, deployments, and rollback-ready releases.
               </p>
             </div>
             <div className="rounded-2xl border border-slate-200 bg-white p-4">
