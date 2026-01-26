@@ -93,6 +93,26 @@ export default function CaseStudies() {
 
                   <div>
                     <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                      Architecture
+                    </p>
+                    <p className="mt-1 text-sm text-slate-700">
+                      {p.architecture}
+                    </p>
+                  </div>
+
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                      Key decisions
+                    </p>
+                    <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-slate-700">
+                      {p.keyDecisions.map((x) => (
+                        <li key={x}>{x}</li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
                       Impact
                     </p>
                     <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-slate-700">

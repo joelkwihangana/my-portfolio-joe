@@ -6,6 +6,8 @@ export type CaseStudy = {
   slug: string;
   title: string;
   subtitle: string;
+  architecture: string;
+  keyDecisions: string[];
 
   role: string;
 
@@ -41,6 +43,13 @@ export const caseStudies: CaseStudy[] = [
       "Fast load experience",
       "Clear service narrative",
       "Mobile-first layout",
+    ],
+    architecture:
+      "React frontend + FastAPI backend on Linux VPS (Nginx reverse proxy).",
+    keyDecisions: [
+      "Backend-first design: API contract before UI",
+      "Simple VPS deployment for reliability and cost control",
+      "Reverse proxy setup to separate web traffic and app runtime",
     ],
     ops: [
       "Deployed FastAPI on Hostinger VPS (Linux)",
@@ -80,6 +89,13 @@ export const caseStudies: CaseStudy[] = [
       "Clear content layout",
       "Deployed and maintained",
     ],
+    architecture:
+      "React frontend + Node.js backend + MySQL database on Linux VPS.",
+    keyDecisions: [
+      "Relational database (MySQL) for structured learning content",
+      "Separate app and database concerns for easier maintenance",
+      "Deployment workflow optimized for safe production updates",
+    ],
     ops: [
       "Provisioned and maintained app + database on Hostinger VPS",
       "Managed MySQL and application updates",
@@ -116,8 +132,15 @@ export const caseStudies: CaseStudy[] = [
       "Documented learn-by-doing",
       "Real engineering habits",
     ],
+    architecture:
+      "Small focused repos: scripts + Docker workflows + CI/CD experiments.",
+    keyDecisions: [
+      "Kept projects small to practice one skill at a time",
+      "Documented setup as runbooks for repeatability",
+      "Used automation to reduce manual steps and errors",
+    ],
     ops: [
-      "markdowns + setup guides",
+      "Runbooks and setup guides",
       "Repeatable automation scripts",
       "CI/CD experiments and notes",
     ],
