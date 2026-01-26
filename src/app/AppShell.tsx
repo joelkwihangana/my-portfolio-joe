@@ -7,6 +7,7 @@ import Skills from "../sections/Skills";
 import About from "../sections/About";
 import Contact from "../sections/Contact";
 import SystemThinking from "../sections/SystemThinking";
+import WhatsAppFloat from "../components/layout/WhatsAppFloat";
 
 export default function AppShell() {
   return (
@@ -21,6 +22,7 @@ export default function AppShell() {
         <Skills />
         <About />
         <Contact />
+        <WhatsAppFloat />
       </main>
 
       <Footer />
