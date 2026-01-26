@@ -2,6 +2,9 @@ import Container from "../components/ui/Container";
 import Badge from "../components/ui/Badge";
 import { caseStudies } from "../content/caseStudies";
 
+import { useInView } from "../utils/useInView";
+import { staggerDelayMs } from "../utils/stagger";
+
 function ExternalLink({
   href,
   children,
@@ -22,8 +25,13 @@ function ExternalLink({
 }
 
 export default function CaseStudies() {
+  const { ref, inView } = useInView<HTMLElement>({ threshold: 0.12 });
   return (
-    <section id="work" className="py-16 sm:py-20">
+    <section
+      ref={ref}
+      id="work"
+      className={`py-16 sm:py-20 reveal ${inView ? "in" : ""}`}
+    >
       <Container>
         <div className="flex items-end justify-between gap-6">
           <div>
@@ -46,10 +54,13 @@ export default function CaseStudies() {
           </a>
         </div>
 
-        <div className="mt-8 grid gap-6 lg:grid-cols-3">
-          {caseStudies.map((p) => (
+        <div
+          className={`mt-8 grid gap-6 lg:grid-cols-3 stagger ${inView ? "in" : ""}`}
+        >
+          {caseStudies.map((p, i) => (
             <article
               key={p.slug}
+              style={{ transitionDelay: `${staggerDelayMs(i, 110)}ms` }}
               className="group overflow-hidden rounded-2xl border border-slate-200 bg-white transition hover:-translate-y-0.5 hover:shadow-sm"
             >
               <div className="border-b border-slate-200 bg-slate-50">
