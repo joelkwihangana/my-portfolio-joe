@@ -1,4 +1,6 @@
 import Container from "../components/ui/Container";
+import { useInView } from "../utils/useInView";
+import { staggerDelayMs } from "../utils/stagger";
 
 const principles = [
   {
@@ -11,7 +13,7 @@ const principles = [
   },
   {
     title: "Prefer boring, reliable infrastructure",
-    body: "I choose the simplest setup that meets the needs, then document it like a runbook or Markdown so it can be operated by others.",
+    body: "I choose the simplest setup that meets the needs, then document it like a runbook so it can be operated by others.",
   },
   {
     title: "Debug with evidence",
@@ -20,8 +22,13 @@ const principles = [
 ];
 
 export default function SystemThinking() {
+  const { ref, inView } = useInView<HTMLElement>({ threshold: 0.15 });
+
   return (
-    <section className="py-16 sm:py-20">
+    <section
+      ref={ref}
+      className={`py-16 sm:py-20 reveal ${inView ? "in" : ""}`}
+    >
       <Container>
         <div className="max-w-2xl">
           <h2 className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
@@ -33,10 +40,13 @@ export default function SystemThinking() {
           </p>
         </div>
 
-        <div className="mt-10 grid gap-6 md:grid-cols-2">
-          {principles.map((p) => (
+        <div
+          className={`mt-10 grid gap-6 md:grid-cols-2 stagger ${inView ? "in" : ""}`}
+        >
+          {principles.map((p, i) => (
             <div
               key={p.title}
+              style={{ transitionDelay: `${staggerDelayMs(i, 90)}ms` }}
               className="rounded-2xl border border-slate-200 bg-white p-6"
             >
               <h3 className="text-lg font-semibold text-slate-900">

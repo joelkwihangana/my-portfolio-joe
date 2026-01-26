@@ -1,1 +1,35 @@
 @import "tailwindcss";
+
+/* Section reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 600ms ease, transform 600ms ease;
+}
+.reveal.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Card stagger */
+.stagger > * {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 520ms ease, transform 520ms ease;
+}
+
+.stagger.in > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Respect accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .stagger > *,
+  .stagger.in > * {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
