@@ -29,9 +29,19 @@ export default function Navbar() {
         </nav>
 
         <div className="flex items-center gap-2">
+          <a
+            href="/Joel-Kwihangana-Resume.pdf"
+            target="_blank"
+            rel="noreferrer"
+            className="hidden md:block"
+          >
+            <Button variant="secondary">Resume</Button>
+          </a>
+
           <a href="#contact" className="hidden md:block">
             <Button variant="secondary">Book a chat</Button>
           </a>
+
           <a
             href="https://github.com/joelkwihangana"
             target="_blank"

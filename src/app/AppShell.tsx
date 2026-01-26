@@ -22,10 +22,10 @@ export default function AppShell() {
         <Skills />
         <About />
         <Contact />
-        <WhatsAppFloat />
       </main>
 
       <Footer />
+      <WhatsAppFloat />
     </div>
   );
 }
