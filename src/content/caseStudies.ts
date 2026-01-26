@@ -1,3 +1,7 @@
+import earthlinkGroupImg from "../assets/images/earthlinkgroup.png";
+import earthlinkStudyImg from "../assets/images/earthlinkstudy.png";
+import devopsProofImg from "../assets/images/devops-proof.png";
+
 export type CaseStudy = {
   slug: string;
   title: string;
@@ -54,7 +58,7 @@ export const caseStudies: CaseStudy[] = [
       "Tailwind",
     ],
     image: {
-      src: "/src/assets/images/earthlinkgroup.png",
+      src: earthlinkGroupImg,
       alt: "EarthLink Group website screenshot",
     },
     links: {
@@ -91,7 +95,7 @@ export const caseStudies: CaseStudy[] = [
       "Tailwind",
     ],
     image: {
-      src: "/src/assets/images/earthlinkstudy.png",
+      src: earthlinkStudyImg,
       alt: "EarthLink Study website screenshot",
     },
     links: {
@@ -119,7 +123,7 @@ export const caseStudies: CaseStudy[] = [
     ],
     stack: ["Linux", "Bash", "Python", "Docker", "CI/CD"],
     image: {
-      src: "/src/assets/images/devops-proof.png",
+      src: devopsProofImg,
       alt: "DevOps proof projects thumbnail",
     },
     links: {
