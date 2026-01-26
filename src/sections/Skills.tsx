@@ -1,5 +1,7 @@
 import Container from "../components/ui/Container";
 import Badge from "../components/ui/Badge";
+import { useInView } from "../utils/useInView";
+import { staggerDelayMs } from "../utils/stagger";
 
 type SkillGroupProps = {
   title: string;
@@ -22,9 +24,65 @@ function SkillGroup({ title, description, skills }: SkillGroupProps) {
   );
 }
 
+const groups: SkillGroupProps[] = [
+  {
+    title: "Backend & APIs",
+    description:
+      "Designing and building backend services that power real applications.",
+    skills: [
+      "FastAPI",
+      "Node.js",
+      "Python",
+      "REST APIs",
+      "Backend architecture",
+    ],
+  },
+  {
+    title: "Infrastructure & DevOps",
+    description:
+      "Running applications in production with reliability and clarity.",
+    skills: [
+      "Linux",
+      "VPS (Hostinger)",
+      "Docker",
+      "CI/CD",
+      "Nginx",
+      "Deployment workflows",
+    ],
+  },
+  {
+    title: "Databases & Data",
+    description:
+      "Managing structured data with a focus on reliability and maintenance.",
+    skills: ["MySQL", "Database schema design", "Backups & updates"],
+  },
+  {
+    title: "Frontend (supporting)",
+    description:
+      "Building clean, maintainable user interfaces when the product requires it.",
+    skills: ["React", "TypeScript", "Tailwind CSS", "Responsive UI"],
+  },
+  {
+    title: "Security & Operations mindset",
+    description: "Thinking beyond code to keep systems stable and secure.",
+    skills: [
+      "Production debugging",
+      "Operational awareness",
+      "Basic security practices",
+      "Monitoring mindset",
+    ],
+  },
+];
+
 export default function Skills() {
+  const { ref, inView } = useInView<HTMLElement>({ threshold: 0.12 });
+
   return (
-    <section id="skills" className="py-16 sm:py-20">
+    <section
+      ref={ref}
+      id="skills"
+      className={`py-16 sm:py-20 reveal ${inView ? "in" : ""}`}
+    >
       <Container>
         <div className="max-w-2xl">
           <h2 className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
@@ -36,54 +94,21 @@ export default function Skills() {
           </p>
         </div>
 
-        <div className="mt-10 grid gap-6 md:grid-cols-2">
-          <SkillGroup
-            title="Backend & APIs"
-            description="Designing and building backend services that power real applications."
-            skills={[
-              "FastAPI",
-              "Node.js",
-              "Python",
-              "REST APIs",
-              "Backend architecture",
-            ]}
-          />
-
-          <SkillGroup
-            title="Infrastructure & DevOps"
-            description="Running applications in production with reliability and clarity."
-            skills={[
-              "Linux",
-              "VPS (Hostinger)",
-              "Docker",
-              "CI/CD",
-              "Nginx",
-              "Deployment workflows",
-            ]}
-          />
-
-          <SkillGroup
-            title="Databases & Data"
-            description="Managing structured data with a focus on reliability and maintenance."
-            skills={["MySQL", "Database schema design", "Backups & updates"]}
-          />
-
-          <SkillGroup
-            title="Frontend (supporting)"
-            description="Building clean, maintainable user interfaces when the product requires it."
-            skills={["React", "TypeScript", "Tailwind CSS", "Responsive UI"]}
-          />
-
-          <SkillGroup
-            title="Security & Operations mindset"
-            description="Thinking beyond code to keep systems stable and secure."
-            skills={[
-              "Production debugging",
-              "Operational awareness",
-              "Basic security practices",
-              "Monitoring mindset",
-            ]}
-          />
+        <div
+          className={`mt-10 grid gap-6 md:grid-cols-2 stagger ${inView ? "in" : ""}`}
+        >
+          {groups.map((g, i) => (
+            <div
+              key={g.title}
+              style={{ transitionDelay: `${staggerDelayMs(i, 90)}ms` }}
+            >
+              <SkillGroup
+                title={g.title}
+                description={g.description}
+                skills={g.skills}
+              />
+            </div>
+          ))}
         </div>
       </Container>
     </section>
