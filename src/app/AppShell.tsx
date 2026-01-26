@@ -6,6 +6,7 @@ import CaseStudies from "../sections/CaseStudies";
 import Skills from "../sections/Skills";
 import About from "../sections/About";
 import Contact from "../sections/Contact";
+import SystemThinking from "../sections/SystemThinking";
 
 export default function AppShell() {
   return (
@@ -15,6 +16,7 @@ export default function AppShell() {
       <main>
         <Hero />
         <ProofStrip />
+        <SystemThinking />
         <CaseStudies />
         <Skills />
         <About />
