@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Container from "../ui/Container";
 import Button from "../ui/Button";
+import AkaiJoeLogo from "../../../public/AkaiJoeLogo-removebg-preview.png";
 
 const navItems = [
   { label: "Work", href: "#work" },
@@ -16,12 +17,8 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/80 backdrop-blur">
       <Container className="flex items-center justify-between py-3">
         <a href="#top" className="flex items-center gap-3">
-          <span
-            className="flex h-9 w-9 items-center justify-center rounded-xl bg-slate-900 text-sm font-semibold text-white"
-            aria-hidden="true"
-          >
-            JK
-          </span>
+          <img src={AkaiJoeLogo} alt="Akai Joe Logo" width={56} height={56} />
+
           <span className="font-semibold tracking-tight text-slate-900">
             Joel Kwihangana
           </span>
