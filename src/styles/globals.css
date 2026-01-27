@@ -42,3 +42,18 @@ section[id] {
     transition: none !important;
   }
 }
+
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+  }
+}
+
+
+:root {
+  color-scheme: light;
+}
+.dark {
+  color-scheme: dark;
+}

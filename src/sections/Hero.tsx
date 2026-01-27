@@ -46,13 +46,13 @@ export default function Hero() {
           </div>
 
           <div className="grid gap-3 sm:grid-cols-3">
-            <div className="rounded-2xl border border-slate-200 bg-white p-4">
+            <div className="rounded-2xl border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-900/40">
               <p className="text-sm font-medium text-slate-900">Ops mindset</p>
               <p className="mt-1 text-sm text-slate-600">
                 Automation, debugging, incident thinking.
               </p>
             </div>
-            <div className="rounded-2xl border border-slate-200 bg-white p-4">
+            <div className="rounded-2xl border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-900/40">
               <p className="text-sm font-medium text-slate-900">
                 Production delivery
               </p>
@@ -60,11 +60,11 @@ export default function Hero() {
                 APIs, databases, deployments, and rollback-ready releases.
               </p>
             </div>
-            <div className="rounded-2xl border border-slate-200 bg-white p-4">
+            <div className="rounded-2xl border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-900/40">
               <p className="text-sm font-medium text-slate-900">
                 Security-aware
               </p>
-              <p className="mt-1 text-sm text-slate-600">
+              <p className="mt-1 text-sm text-slate-600 ">
                 Real experience in endpoint and cloud security.
               </p>
             </div>
