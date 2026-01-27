@@ -11,10 +11,10 @@ import WhatsAppFloat from "../components/layout/WhatsAppFloat";
 
 export default function AppShell() {
   return (
-    <div className="min-h-screen bg-white text-slate-900 [background-image:radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:24px_24px]">
+    <div className="min-h-screen bg-white text-slate-900 [background-image:radial-gradient(#e5e7eb_0.8px,transparent_0.8px)] [background-size:24px_24px]">
       <Navbar />
 
-      <main>
+      <main id="content" className="relative">
         <Hero />
         <ProofStrip />
         <SystemThinking />

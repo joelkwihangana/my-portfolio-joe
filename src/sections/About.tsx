@@ -1,29 +1,8 @@
 import Container from "../components/ui/Container";
-import Badge from "../components/ui/Badge";
 import { useInView } from "../utils/useInView";
-import { staggerDelayMs } from "../utils/stagger";
-
-const highlights = [
-  {
-    title: "Backend-first builder",
-    body: "I design APIs and data flows first, then build interfaces on top of stable backend contracts.",
-  },
-  {
-    title: "Owns deployments",
-    body: "I deploy and maintain real systems on Linux VPS (Hostinger), including production updates and troubleshooting.",
-  },
-  {
-    title: "Support background = strong debugging",
-    body: "L2 support taught me to isolate issues fast, verify with evidence, and communicate clearly under pressure.",
-  },
-  {
-    title: "Security-aware mindset",
-    body: "I care about least privilege, safe releases, and practical security habits from real endpoint and cloud security work.",
-  },
-];
-
+import awesomejoe from "/src/assets/images/awesome-joe.png";
 export default function About() {
-  const { ref, inView } = useInView<HTMLElement>({ threshold: 0.12 });
+  const { ref, inView } = useInView<HTMLElement>({ threshold: 0.15 });
 
   return (
     <section
@@ -32,69 +11,44 @@ export default function About() {
       className={`py-16 sm:py-20 reveal ${inView ? "in" : ""}`}
     >
       <Container>
-        <div className="grid gap-10 lg:grid-cols-12 lg:items-start">
-          <div className="lg:col-span-5">
-            <h2 className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
-              About
-            </h2>
-
-            <p className="mt-4 leading-relaxed text-slate-600">
-              I’m Joel Kwihangana, a Technical Support Engineer (L2)
-              transitioning into a backend-focused Fullstack DevOps role. I
-              build and operate fullstack systems where backend services,
-              deployments, and reliability are treated as first-class features.
-            </p>
-
-            <p className="mt-4 leading-relaxed text-slate-600">
-              I currently work on real client projects, including backend
-              development and VPS deployments. I have shipped Node.js + MySQL
-              systems and I’m building FastAPI services, deploying and
-              maintaining them on Linux infrastructure.
-            </p>
-
-            <div className="mt-6 flex flex-wrap gap-2">
-              <Badge>FastAPI</Badge>
-              <Badge>Node.js</Badge>
-              <Badge>MySQL</Badge>
-              <Badge>Linux</Badge>
-              <Badge>Nginx</Badge>
-              <Badge>Docker</Badge>
-              <Badge>CI/CD</Badge>
+        <div className="grid gap-10 md:grid-cols-5 md:items-center">
+          {/* Image */}
+          <div className="md:col-span-2">
+            <div className="relative mx-auto w-56 sm:w-64">
+              <img
+                src={awesomejoe}
+                alt="Joel Kwihangana working on backend systems"
+                className="aspect-square rounded-2xl object-cover shadow-lg"
+              />
+              {/* subtle frame */}
+              <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-slate-200" />
             </div>
           </div>
 
-          <div className={`lg:col-span-7 stagger ${inView ? "in" : ""}`}>
-            <div className="grid gap-6 md:grid-cols-2">
-              {highlights.map((h, i) => (
-                <div
-                  key={h.title}
-                  style={{ transitionDelay: `${staggerDelayMs(i, 90)}ms` }}
-                  className="rounded-2xl border border-slate-200 bg-white p-6"
-                >
-                  <h3 className="text-lg font-semibold text-slate-900">
-                    {h.title}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-600">
-                    {h.body}
-                  </p>
-                </div>
-              ))}
-            </div>
+          {/* Text */}
+          <div className="md:col-span-3">
+            <h2 className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
+              About me
+            </h2>
 
-            <div
-              style={{ transitionDelay: `${staggerDelayMs(4, 90)}ms` }}
-              className="mt-6 rounded-2xl border border-slate-200 bg-slate-50 p-6"
-            >
-              <p className="text-sm font-semibold text-slate-900">
-                What I’m focusing on now
-              </p>
-              <p className="mt-2 text-sm leading-relaxed text-slate-700">
-                Building and operating backend-driven systems end-to-end, from
-                API design and data modeling to deployment, production
-                troubleshooting, and continuous improvement of infrastructure
-                workflows.
-              </p>
-            </div>
+            <p className="mt-4 text-slate-600">
+              I’m a backend-focused Fullstack DevOps engineer with a strong
+              foundation in production systems, Linux environments, and real
+              operational responsibility.
+            </p>
+
+            <p className="mt-3 text-slate-600">
+              My work centers on building and operating backend services using
+              FastAPI and Node.js, deploying them to VPS environments, and
+              maintaining reliability through clean automation, debugging, and
+              infrastructure awareness.
+            </p>
+
+            <p className="mt-3 text-slate-600">
+              I care less about flashy demos and more about systems that run,
+              scale reasonably, and can be debugged at 2 a.m. when something
+              breaks.
+            </p>
           </div>
         </div>
       </Container>
