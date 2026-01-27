@@ -31,10 +31,10 @@ export default function SystemThinking() {
     >
       <Container>
         <div className="max-w-2xl">
-          <h2 className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
+          <h2 className="text-2xl font-semibold tracking-tight text-slate-900 dark:text-white sm:text-3xl">
             How I think about systems
           </h2>
-          <p className="mt-3 text-slate-600">
+          <p className="mt-3 text-slate-600 dark:text-slate-300">
             I focus on building backend services and deployments that are
             maintainable, observable, and safe to operate.
           </p>
@@ -47,12 +47,12 @@ export default function SystemThinking() {
             <div
               key={p.title}
               style={{ transitionDelay: `${staggerDelayMs(i, 90)}ms` }}
-              className="rounded-2xl border border-slate-200 bg-white p-6"
+              className="rounded-2xl border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-900/40"
             >
-              <h3 className="text-lg font-semibold text-slate-900">
+              <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
                 {p.title}
               </h3>
-              <p className="mt-2 text-sm leading-relaxed text-slate-600">
+              <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
                 {p.body}
               </p>
             </div>

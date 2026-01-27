@@ -11,9 +11,13 @@ type SkillGroupProps = {
 
 function SkillGroup({ title, description, skills }: SkillGroupProps) {
   return (
-    <div className="rounded-2xl border border-slate-200 bg-white p-6">
-      <h3 className="text-lg font-semibold text-slate-900">{title}</h3>
-      <p className="mt-2 text-sm text-slate-600">{description}</p>
+    <div className="rounded-2xl border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-900/40">
+      <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
+        {title}
+      </h3>
+      <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
+        {description}
+      </p>
 
       <div className="mt-4 flex flex-wrap gap-2">
         {skills.map((skill) => (
@@ -85,10 +89,10 @@ export default function Skills() {
     >
       <Container>
         <div className="max-w-2xl">
-          <h2 className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
+          <h2 className="text-2xl font-semibold tracking-tight text-slate-900 dark:text-white sm:text-3xl">
             Skills & tooling
           </h2>
-          <p className="mt-3 text-slate-600">
+          <p className="mt-3 text-slate-600 dark:text-slate-300">
             Backend-focused fullstack DevOps skills, built through real
             projects, production deployments, and hands-on troubleshooting.
           </p>
