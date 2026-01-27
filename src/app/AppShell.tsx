@@ -11,7 +11,15 @@ import WhatsAppFloat from "../components/layout/WhatsAppFloat";
 
 export default function AppShell() {
   return (
-    <div className="min-h-screen bg-white text-slate-900 [background-image:radial-gradient(#e5e7eb_0.8px,transparent_0.8px)] [background-size:24px_24px]">
+    <div
+      className="
+    min-h-screen text-slate-900 dark:text-slate-100
+    bg-white dark:bg-slate-950
+    [background-image:radial-gradient(#e5e7eb_0.8px,transparent_0.8px)]
+    dark:[background-image:radial-gradient(#1f2937_0.8px,transparent_0.8px)]
+    [background-size:24px_24px]
+  "
+    >
       <Navbar />
 
       <main id="content" className="relative">
