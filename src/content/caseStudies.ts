@@ -1,6 +1,6 @@
 import earthlinkGroupImg from "../assets/images/earthlinkgroup.png";
 import earthlinkStudyImg from "../assets/images/earthlinkstudy.png";
-import devopsProofImg from "../assets/images/devops-proof.png";
+import vavaspaImg from "../assets/images/vavaspa.png";
 
 export type CaseStudy = {
   slug: string;
@@ -154,7 +154,7 @@ export const caseStudies: CaseStudy[] = [
     ],
     stack: ["React", "TypeScript", "Vite", "TailwindCSS"],
     image: {
-      src: devopsProofImg, // Temporary placeholder until specific asset exists
+      src: vavaspaImg,
       alt: "VavaSpa Frontend Architecture",
     },
     links: {
