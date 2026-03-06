@@ -19,6 +19,8 @@ export type CaseStudy = {
 
   impact: string[];
   ops?: string[];
+  infrastructureSpecs?: { label: string; value: string }[];
+  operationalHardening?: string[];
   stack: string[];
 
   image: {
@@ -57,6 +59,18 @@ export const caseStudies: CaseStudy[] = [
       "Nginx reverse proxy for SSL termination and static caching",
       "Systemd service management for automatic process restarts",
     ],
+    infrastructureSpecs: [
+      { label: "Process Management", value: "Gunicorn/Uvicorn workers managing FastAPI ASGI processes." },
+      { label: "Reverse Proxy", value: "Nginx handling SSL termination and request buffering." },
+      { label: "Database", value: "PostgreSQL with indexed lookups for [User/Course] data." },
+      { label: "Containerization", value: "Multi-stage Docker builds to keep production images lean." },
+      { label: "Environment", value: "Hardened Linux (Ubuntu) instance on Hostinger VPS." }
+    ],
+    operationalHardening: [
+      "Configured Nginx access/error logs for request auditing.",
+      "Implemented custom FastAPI exception handlers for graceful error states.",
+      "Managed database backups via automated cron-jobs/scripts."
+    ],
     ops: [
       "Automated systemd daemon configuration",
       "TLS/SSL certificate management via Certbot",
@@ -66,9 +80,9 @@ export const caseStudies: CaseStudy[] = [
       "FastAPI",
       "Python",
       "Nginx",
-      "Systemd",
-      "React",
-      "Tailwind",
+      "PostgreSQL",
+      "Docker",
+      "Ubuntu",
     ],
     image: {
       src: earthlinkGroupImg,
