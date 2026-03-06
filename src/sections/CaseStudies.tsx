@@ -56,89 +56,99 @@ export default function CaseStudies() {
 
             if (isFeatured) {
               return (
-                <BentoCard key={p.slug} featured={true} className="!p-0 overflow-hidden group">
-                  <div className="flex flex-col lg:grid lg:grid-cols-12 h-full z-0 relative">
+                <BentoCard key={p.slug} featured={true} className="group">
+                  <div className="flex flex-col xl:flex-row h-full">
                     
-                    {/* Image Container */}
-                    <div className="lg:col-span-6 relative z-0 h-72 sm:h-96 lg:h-full border-b lg:border-b-0 lg:border-l border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 overflow-hidden flex flex-col lg:order-last">
-                      <div className="absolute top-4 left-4 z-20">
-                        <StatusBadge status={p.status} />
+                    {/* Left/Top Area: Image & Core Info */}
+                    <div className="flex flex-col xl:w-1/2 xl:border-r border-slate-200 dark:border-slate-800 xl:pr-8">
+                      {/* Image */}
+                      <div className="relative rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-900 aspect-video mb-8">
+                        <img
+                          src={p.image.src}
+                          alt={p.image.alt}
+                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                          loading="lazy"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
+                        <div className="absolute top-4 left-4">
+                          <StatusBadge status={p.status} />
+                        </div>
                       </div>
-                      <img
-                        src={p.image.src}
-                        alt={p.image.alt}
-                        className="w-full h-full object-cover object-top transition-transform duration-700 hover:scale-105 absolute inset-0 z-10"
-                        loading="lazy"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent z-10 pointer-events-none" />
-                    </div>
 
-                    {/* Text Container */}
-                    <div className="lg:col-span-6 relative z-10 p-6 sm:p-8 lg:p-12 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md flex flex-col lg:border-r border-transparent lg:border-slate-200 dark:lg:border-slate-800">
-                      
-                      {/* Top: Prose */}
-                      <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-slate-700 dark:group-hover:text-slate-200 transition-colors">
-                        {p.title}
-                      </h3>
-                      <p className="text-sm font-medium text-emerald-600 dark:text-emerald-400 mb-5">
-                        {p.role}
-                      </p>
-                      <div className="space-y-4 mb-2">
-                        <p className="text-slate-600 dark:text-slate-300 leading-relaxed font-sans sm:text-lg">
+                      {/* Prose Header */}
+                      <div>
+                        <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-slate-700 dark:group-hover:text-slate-200 transition-colors">
+                          {p.title}
+                        </h3>
+                        <p className="text-sm font-medium text-emerald-600 dark:text-emerald-400 mb-4">
+                          {p.role}
+                        </p>
+                        <p className="text-slate-600 dark:text-slate-300 leading-relaxed font-sans mb-4">
                           {p.subtitle}
                         </p>
-                        <p className="text-slate-600 dark:text-slate-300 leading-relaxed font-sans">
-                          <strong className="text-slate-900 dark:text-white font-semibold">The Why: </strong>{p.theWhy}
-                        </p>
+                        <div className="bg-slate-50 dark:bg-slate-800/50 rounded-xl p-5 border border-slate-100 dark:border-slate-800">
+                          <h4 className="text-xs font-bold tracking-wider uppercase text-slate-500 dark:text-slate-400 mb-2">
+                            The "Why"
+                          </h4>
+                          <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-sans">
+                            {p.theWhy}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Right/Bottom Area: Technical Specs */}
+                    <div className="flex flex-col xl:w-1/2 mt-8 xl:mt-0 xl:pl-8 justify-between">
+                      <div className="space-y-6 flex-1">
+                        
+                        {/* Terminal Embed */}
+                        {p.infrastructureSpecs && (
+                          <div className="rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-[#0d1117] shadow-sm">
+                            <div className="flex items-center px-4 py-3 border-b border-slate-800 bg-slate-900">
+                              <div className="flex gap-1.5 mr-4">
+                                <div className="w-2.5 h-2.5 rounded-full bg-red-500" />
+                                <div className="w-2.5 h-2.5 rounded-full bg-yellow-500" />
+                                <div className="w-2.5 h-2.5 rounded-full bg-green-500" />
+                              </div>
+                              <div className="flex items-center gap-2 font-mono text-[11px] text-slate-400">
+                                <Terminal className="w-3.5 h-3.5" />
+                                <span>system_internals.yml</span>
+                              </div>
+                            </div>
+                            <div className="p-5 font-mono text-xs text-slate-300 leading-relaxed">
+                              <ul className="space-y-4">
+                                {p.infrastructureSpecs.map((spec) => (
+                                  <li key={spec.label}>
+                                    <span className="text-blue-400 font-semibold">{spec.label}:</span>{" "}
+                                    <span className="text-slate-400">{spec.value}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          </div>
+                        )}
+
+                        {/* Operational Hardening */}
+                        {p.operationalHardening && (
+                          <div className="p-5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
+                            <div className="flex items-center gap-2 mb-3">
+                              <ShieldCheck className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+                              <h4 className="font-semibold text-sm text-slate-900 dark:text-white">Operational Hardening</h4>
+                            </div>
+                            <ul className="space-y-2">
+                              {p.operationalHardening.map((item, idx) => (
+                                <li key={idx} className="flex items-start gap-2 text-sm text-slate-600 dark:text-slate-400 font-sans">
+                                  <span className="text-emerald-500 mt-1 pb-1 font-bold text-[10px] leading-none">■</span>
+                                  <span className="leading-relaxed">{item}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
                       </div>
 
-                      {/* Middle: Code Editor */}
-                      {p.infrastructureSpecs && (
-                        <div className="rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-[#0d1117] shadow-lg mt-6 lg:mt-8 shrink-0">
-                          <div className="flex items-center px-4 py-3 border-b border-slate-800 bg-slate-900">
-                            <div className="flex gap-1.5 mr-4">
-                              <div className="w-3 h-3 rounded-full bg-red-500/80" />
-                              <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
-                              <div className="w-3 h-3 rounded-full bg-green-500/80" />
-                            </div>
-                            <div className="flex items-center gap-2 font-mono text-xs text-slate-400">
-                              <Terminal className="w-3.5 h-3.5" />
-                              <span>system_internals.yml</span>
-                            </div>
-                          </div>
-                          <div className="p-5 font-mono text-xs text-slate-300">
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-5">
-                              {p.infrastructureSpecs.map((spec) => (
-                                <div key={spec.label} className="flex flex-col gap-1.5">
-                                  <span className="text-blue-400 font-semibold">{spec.label}:</span>
-                                  <span className="leading-relaxed text-slate-400 block">{spec.value}</span>
-                                </div>
-                              ))}
-                            </div>
-                          </div>
-                        </div>
-                      )}
-
-                      {/* Bottom: Hardening Box */}
-                      {p.operationalHardening && (
-                        <div className="mt-6 p-5 rounded-xl border border-purple-500/20 bg-purple-500/5 dark:bg-purple-900/10 shrink-0">
-                          <div className="flex items-center gap-2 mb-3">
-                            <ShieldCheck className="w-4 h-4 text-purple-600 dark:text-purple-400" />
-                            <h4 className="font-semibold text-sm text-purple-900 dark:text-purple-300">Operational Hardening</h4>
-                          </div>
-                          <ul className="space-y-2.5">
-                            {p.operationalHardening.map((item, idx) => (
-                              <li key={idx} className="flex items-start gap-2.5 text-sm text-slate-700 dark:text-slate-300 font-sans">
-                                <span className="text-purple-500 mt-0.5 font-bold">•</span>
-                                <span className="leading-relaxed">{item}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      )}
-
-                      {/* Footer / Links */}
-                      <div className="mt-8 lg:mt-10 pt-6 border-t border-slate-100 dark:border-slate-800/60 w-full shrink-0 flex flex-col justify-end h-full">
+                      {/* Footer */}
+                      <div className="mt-8 pt-6 border-t border-slate-100 dark:border-slate-800/60 w-full shrink-0">
                         <div className="flex flex-wrap gap-2 mb-6">
                           {p.stack.slice(0, 5).map((s) => (
                             <Badge key={s}>{s}</Badge>
@@ -159,8 +169,8 @@ export default function CaseStudies() {
                           )}
                         </footer>
                       </div>
-
                     </div>
+
                   </div>
                 </BentoCard>
               );
