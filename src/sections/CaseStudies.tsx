@@ -1,46 +1,42 @@
 import Container from "../components/ui/Container";
 import Badge from "../components/ui/Badge";
 import { caseStudies } from "../content/caseStudies";
-import { useInView } from "../utils/useInView";
-import { staggerDelayMs } from "../utils/stagger";
+import { BentoGrid, BentoCard } from "../components/ui/BentoGrid";
+import { StatusBadge } from "../components/ui/StatusBadge";
+import { Server, Activity, ArrowRight } from "lucide-react";
 
 function ExternalLink({
   href,
   children,
+  className = ""
 }: {
   href: string;
   children: React.ReactNode;
+  className?: string;
 }) {
   return (
     <a
       href={href}
       target="_blank"
       rel="noreferrer"
-      className="text-sm font-medium text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white"
+      className={`inline-flex items-center gap-1.5 text-sm font-medium text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white transition-colors ${className}`}
     >
-      {children} →
+      {children} <ArrowRight className="w-3.5 h-3.5" />
     </a>
   );
 }
 
 export default function CaseStudies() {
-  const { ref, inView } = useInView<HTMLElement>({ threshold: 0.12 });
-
   return (
-    <section
-      ref={ref}
-      id="work"
-      className={`py-16 sm:py-20 reveal ${inView ? "in" : ""}`}
-    >
+    <section id="work" className="py-20 sm:py-28 relative">
       <Container>
-        <div className="flex items-end justify-between gap-6">
-          <div>
-            <h2 className="text-2xl font-semibold tracking-tight text-slate-900 dark:text-white sm:text-3xl">
-              Featured work
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+          <div className="max-w-2xl">
+            <h2 className="text-3xl font-semibold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
+              Systems Architecture
             </h2>
-            <p className="mt-2 max-w-2xl text-slate-600 dark:text-slate-300">
-              Case studies that show how I think, build, deploy, and maintain
-              production systems.
+            <p className="mt-4 text-lg text-slate-600 dark:text-slate-300">
+              Proof of work spanning API design, relational data modeling, and declarative infrastructure deployments.
             </p>
           </div>
 
@@ -48,139 +44,113 @@ export default function CaseStudies() {
             href="https://github.com/joelkwihangana"
             target="_blank"
             rel="noreferrer"
-            className="hidden text-sm font-medium text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white sm:block"
+            className="hidden text-sm font-medium text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white sm:inline-flex items-center gap-2 transition-colors"
           >
-            View all on GitHub →
+            View all repositories <ArrowRight className="w-4 h-4" />
           </a>
         </div>
 
-        <div
-          className={`mt-8 grid gap-6 lg:grid-cols-3 stagger ${inView ? "in" : ""}`}
-        >
+        <BentoGrid>
           {caseStudies.map((p, i) => (
-            <article
-              key={p.slug}
-              style={{ transitionDelay: `${staggerDelayMs(i, 110)}ms` }}
-              className="group overflow-hidden rounded-2xl border border-slate-200 bg-white transition hover:-translate-y-0.5 hover:shadow-sm dark:border-slate-800 dark:bg-slate-900/40"
-            >
-              <div className="border-b border-slate-200 bg-slate-50 dark:border-slate-800 dark:bg-slate-950/40">
+            <BentoCard key={p.slug} featured={i === 0}>
+              {/* Card Header Image Area */}
+              <div className="relative border-b border-slate-200 bg-slate-50 dark:border-slate-800 dark:bg-slate-950/40 shrink-0">
                 <img
                   src={p.image.src}
                   alt={p.image.alt}
-                  className="h-44 w-full object-cover transition group-hover:scale-[1.02]"
+                  className={`w-full object-cover transition-transform duration-700 group-hover:scale-105 ${i === 0 ? "h-64 sm:h-80" : "h-48"}`}
                   loading="lazy"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
+                <div className="absolute top-4 left-4">
+                  <StatusBadge status={p.status} />
+                </div>
               </div>
 
-              <div className="p-6">
-                <header>
-                  <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
+              {/* Card Content Area */}
+              <div className="p-6 md:p-8 flex flex-col flex-1">
+                <header className="mb-6">
+                  <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-slate-700 dark:group-hover:text-slate-200 transition-colors">
                     {p.title}
                   </h3>
-
-                  <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
-                    {p.subtitle}
-                  </p>
-
-                  <p className="mt-3 text-sm text-slate-700 dark:text-slate-200">
-                    <span className="font-medium text-slate-900 dark:text-white">
-                      Role:
-                    </span>{" "}
+                  <p className="text-sm font-medium text-emerald-600 dark:text-emerald-400 mb-4">
                     {p.role}
+                  </p>
+                  <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
+                    {p.subtitle}
                   </p>
                 </header>
 
-                <div className="mt-5 space-y-4">
-                  <div>
-                    <p className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
-                      Problem
-                    </p>
-                    <p className="mt-1 text-sm text-slate-700 dark:text-slate-200">
-                      {p.problem}
-                    </p>
-                  </div>
-
-                  <div>
-                    <p className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
-                      Solution
-                    </p>
-                    <p className="mt-1 text-sm text-slate-700 dark:text-slate-200">
-                      {p.solution}
-                    </p>
-                  </div>
-
-                  <div>
-                    <p className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
-                      Architecture
-                    </p>
-                    <p className="mt-1 text-sm text-slate-700 dark:text-slate-200">
+                {/* Specs Section */}
+                <div className="flex-1 space-y-5">
+                  <div className="bg-slate-50 dark:bg-slate-800/50 rounded-xl p-4 border border-slate-100 dark:border-slate-800">
+                    <div className="flex items-center gap-2 mb-2">
+                      <Server className="w-4 h-4 text-slate-400 dark:text-slate-500" />
+                      <h4 className="text-xs font-bold tracking-wider uppercase text-slate-500 dark:text-slate-400">
+                        System Architecture
+                      </h4>
+                    </div>
+                    <p className="text-sm font-medium text-slate-900 dark:text-slate-200">
                       {p.architecture}
                     </p>
                   </div>
 
                   <div>
-                    <p className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
-                      Key decisions
+                    <h4 className="text-xs font-bold tracking-wider uppercase text-slate-500 dark:text-slate-400 mb-2">
+                      The "Why"
+                    </h4>
+                    <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                      {p.theWhy}
                     </p>
-                    <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-slate-700 dark:text-slate-200">
-                      {p.keyDecisions.map((x) => (
-                        <li key={x}>{x}</li>
-                      ))}
-                    </ul>
                   </div>
 
                   <div>
-                    <p className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
-                      Impact
+                    <div className="flex items-center gap-2 mb-2">
+                      <Activity className="w-4 h-4 text-slate-400 dark:text-slate-500" />
+                      <h4 className="text-xs font-bold tracking-wider uppercase text-slate-500 dark:text-slate-400">
+                        Observability & Ops
+                      </h4>
+                    </div>
+                    <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                      {p.observability}
                     </p>
-                    <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-slate-700 dark:text-slate-200">
-                      {p.impact.map((x) => (
-                        <li key={x}>{x}</li>
-                      ))}
-                    </ul>
+                  </div>
+                </div>
+
+                <div className="mt-8 pt-6 border-t border-slate-100 dark:border-slate-800/60">
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {p.stack.slice(0, 5).map((s) => (
+                      <Badge key={s}>{s}</Badge>
+                    ))}
+                    {p.stack.length > 5 && (
+                      <Badge className="bg-slate-100 text-slate-500 dark:bg-slate-800 dark:text-slate-400 border-none">
+                        +{p.stack.length - 5}
+                      </Badge>
+                    )}
                   </div>
 
-                  {p.ops && p.ops.length > 0 && (
-                    <div className="rounded-xl border border-slate-200 bg-slate-50 p-4 dark:border-slate-800 dark:bg-slate-950/40">
-                      <p className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
-                        Ops notes
-                      </p>
-                      <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-slate-700 dark:text-slate-200">
-                        {p.ops.map((x) => (
-                          <li key={x}>{x}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
+                  <footer className="flex items-center gap-6">
+                    {p.links.live && (
+                      <ExternalLink href={p.links.live}>Production Deployment</ExternalLink>
+                    )}
+                    {p.links.github && (
+                      <ExternalLink href={p.links.github}>Infrastructure Source</ExternalLink>
+                    )}
+                  </footer>
                 </div>
-
-                <div className="mt-5 flex flex-wrap gap-2">
-                  {p.stack.map((s) => (
-                    <Badge key={s}>{s}</Badge>
-                  ))}
-                </div>
-
-                <footer className="mt-6 flex items-center gap-4">
-                  {p.links.live && (
-                    <ExternalLink href={p.links.live}>Live</ExternalLink>
-                  )}
-                  {p.links.github && (
-                    <ExternalLink href={p.links.github}>Code</ExternalLink>
-                  )}
-                </footer>
               </div>
-            </article>
+            </BentoCard>
           ))}
-        </div>
+        </BentoGrid>
 
-        <div className="mt-8 sm:hidden">
+        <div className="mt-10 sm:hidden flex justify-center">
           <a
             href="https://github.com/joelkwihangana"
             target="_blank"
             rel="noreferrer"
-            className="text-sm font-medium text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white"
+            className="text-sm font-medium text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white inline-flex items-center gap-2"
           >
-            View all on GitHub →
+            View all repositories <ArrowRight className="w-4 h-4" />
           </a>
         </div>
       </Container>

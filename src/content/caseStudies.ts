@@ -6,7 +6,10 @@ export type CaseStudy = {
   slug: string;
   title: string;
   subtitle: string;
+  status: 'Production' | 'Live' | 'Internal Lab';
   architecture: string;
+  theWhy: string;
+  observability: string;
   keyDecisions: string[];
 
   role: string;
@@ -33,42 +36,43 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "earthlink-group",
     title: "EarthLink Group",
-    subtitle: "Corporate site built for credibility, speed, and conversion.",
-    role: "Backend (FastAPI) + deployment on Hostinger VPS",
+    subtitle: "High-Availability Corporate Web Platform",
+    status: 'Production',
+    role: "Backend Architecture & Infrastructure Owner",
     problem:
-      "Needed a professional web presence that builds trust fast and communicates services clearly.",
+      "Needed a scalable, concurrent web presence capable of handling marketing traffic bursts while strictly isolating runtime environments.",
     solution:
-      "Built FastAPI backend services and deployed them on a Linux VPS, then delivered a clean frontend experience for trust and conversion.",
+      "Provisioned a Linux VPS and orchestrated a FastAPI backend served via Nginx reverse proxy. Implemented strict system boundaries between the web server and the ASGI application.",
     impact: [
-      "Fast load experience",
-      "Clear service narrative",
-      "Mobile-first layout",
+      "Sub-200ms API Response",
+      "Zero-downtime Nginx reloads",
+      "Hardened Linux Environment",
     ],
     architecture:
-      "React frontend + FastAPI backend on Linux VPS (Nginx reverse proxy).",
+      "FastAPI (ASGI) + Uvicorn + Nginx Reverse Proxy on Ubuntu VPS.",
+    theWhy: "Chose FastAPI for its native async support to handle concurrent connections efficiently, avoiding blocking I/O during database fetches.",
+    observability: "Monitoring app health and Uptime via custom logging pipelines.",
     keyDecisions: [
-      "Backend-first design: API contract before UI",
-      "Simple VPS deployment for reliability and cost control",
-      "Reverse proxy setup to separate web traffic and app runtime",
+      "Contract-first API design for frontend decoupling",
+      "Nginx reverse proxy for SSL termination and static caching",
+      "Systemd service management for automatic process restarts",
     ],
     ops: [
-      "Deployed FastAPI on Hostinger VPS (Linux)",
-      "Managed production updates and troubleshooting",
-      "Handled reverse proxy setup (Nginx) and release flow",
+      "Automated systemd daemon configuration",
+      "TLS/SSL certificate management via Certbot",
+      "Log rotation setup to prevent disk exhaustion",
     ],
     stack: [
       "FastAPI",
       "Python",
-      "Linux",
       "Nginx",
-      "VPS",
-      "Deployment",
+      "Systemd",
       "React",
       "Tailwind",
     ],
     image: {
       src: earthlinkGroupImg,
-      alt: "EarthLink Group website screenshot",
+      alt: "EarthLink Group infrastructure topology",
     },
     links: {
       live: "https://earthlinkgroup.com/",
@@ -77,80 +81,84 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "earthlink-study",
     title: "EarthLink Study",
-    subtitle: "Education platform focused on clarity and user experience.",
-    role: "Backend (Node.js + MySQL) + deployment on Hostinger VPS",
+    subtitle: "Relational Data Platform for Education",
+    status: 'Live',
+    role: "Database Administrator & Backend Engineer",
     problem:
-      "Needed a platform to publish learning content and support students with a smooth experience.",
+      "Required a structured data storage solution capable of enforcing referential integrity for student enrollments and course content.",
     solution:
-      "Implemented backend services with Node.js and MySQL, deployed to a Linux VPS, and integrated the frontend to deliver a smooth learning experience.",
-
+      "Designed an optimized normalized MySQL schema. Built a Node.js connection pool to handle multiplexed database transactions efficiently.",
     impact: [
-      "Responsive design",
-      "Clear content layout",
-      "Deployed and maintained",
+      "ACID Compliant Transactions",
+      "Optimized query execution",
+      "Reliable state management",
     ],
     architecture:
-      "React frontend + Node.js backend + MySQL database on Linux VPS.",
+      "Node.js (Express) + MySQL (Connection Pooling) + React SPA.",
+    theWhy: "Selected MySQL for strict schema enforcement and relational integrity, ensuring orphaned student records cannot exist.",
+    observability: "Database slow-query logging and connection pool monitoring.",
     keyDecisions: [
-      "Relational database (MySQL) for structured learning content",
-      "Separate app and database concerns for easier maintenance",
-      "Deployment workflow optimized for safe production updates",
+      "Implemented connection pooling to prevent connection exhaustion",
+      "Normalized database to 3NF to eliminate data anomalies",
+      "Environment variable separation for production secrets",
     ],
     ops: [
-      "Provisioned and maintained app + database on Hostinger VPS",
-      "Managed MySQL and application updates",
-      "Production troubleshooting and stability improvements",
+      "MySQL user privilege isolation",
+      "Scheduled logical database backups",
+      "Process management via PM2",
     ],
     stack: [
       "Node.js",
       "MySQL",
+      "PM2",
       "Linux",
-      "VPS",
-      "Deployment",
       "React",
-      "Tailwind",
+      "React Router",
     ],
     image: {
       src: earthlinkStudyImg,
-      alt: "EarthLink Study website screenshot",
+      alt: "EarthLink Study schema design",
     },
     links: {
       live: "https://earthlinkstudy.com/",
     },
   },
   {
-    slug: "devops-proof",
-    title: "DevOps Proof Projects",
-    subtitle: "Automation, CI/CD, and hands-on engineering proof.",
-    role: "Owner",
+    slug: "vavaspa",
+    title: "VavaSpa",
+    subtitle: "Modern SPA with React & Vite Tooling",
+    status: 'Production',
+    role: "Lead Frontend Engineer",
     problem:
-      "Needed practical proof of DevOps skills beyond certificates and buzzwords.",
+      "Required a highly performant, accessible single-page application with optimized asset delivery and strict typing.",
     solution:
-      "Created small, focused repos showing automation scripts, container workflows, and deployment practices with clear documentation.",
+      "Engineered a component-driven UI using React/TypeScript. Leveraged Vite for hot-module replacement in dev and heavily optimized ESBuild bundling for production.",
     impact: [
-      "Repeatable workflows",
-      "Documented learn-by-doing",
-      "Real engineering habits",
+      "Type-safe compilation",
+      "Optimized chunk splitting",
+      "Lighthouse 90+ Performance",
     ],
     architecture:
-      "Small focused repos: scripts + Docker workflows + CI/CD experiments.",
+      "React 19 + TypeScript + Vite + Tailwind 4 (CDN-less).",
+    theWhy: "Selected Vite and TypeScript to enforce compile-time safety and eliminate runtime type errors before CI/CD pipelines trigger.",
+    observability: "Frontend error boundary tracking and core web vitals.",
     keyDecisions: [
-      "Kept projects small to practice one skill at a time",
-      "Documented setup as runbooks for repeatability",
-      "Used automation to reduce manual steps and errors",
+      "Strict TypeScript configuration to enforce data contracts",
+      "Tailwind V4 utility strategy to minimize CSS bundle size",
+      "Component-level code splitting",
     ],
     ops: [
-      "Runbooks and setup guides",
-      "Repeatable automation scripts",
-      "CI/CD experiments and notes",
+      "Automated linting via ESLint",
+      "Deterministic builds via package-lock",
+      "Static asset optimization",
     ],
-    stack: ["Linux", "Bash", "Python", "Docker", "CI/CD"],
+    stack: ["React", "TypeScript", "Vite", "TailwindCSS"],
     image: {
-      src: devopsProofImg,
-      alt: "DevOps proof projects thumbnail",
+      src: devopsProofImg, // Temporary placeholder until specific asset exists
+      alt: "VavaSpa Frontend Architecture",
     },
     links: {
-      github: "https://github.com/joelkwihangana",
+      live: "https://vavaspa.com/",
     },
   },
 ];

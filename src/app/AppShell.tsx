@@ -3,6 +3,7 @@ import Footer from "../components/layout/Footer";
 import Hero from "../sections/Hero";
 import ProofStrip from "../sections/ProofStrip";
 import CaseStudies from "../sections/CaseStudies";
+import EngineeringLabs from "../sections/EngineeringLabs";
 import Skills from "../sections/Skills";
 import About from "../sections/About";
 import Contact from "../sections/Contact";
@@ -27,6 +28,7 @@ export default function AppShell() {
         <ProofStrip />
         <SystemThinking />
         <CaseStudies />
+        <EngineeringLabs />
         <Skills />
         <About />
         <Contact />
