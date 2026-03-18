@@ -4,7 +4,6 @@ import Hero from "../sections/Hero";
 import ProofStrip from "../sections/ProofStrip";
 import CaseStudies from "../sections/CaseStudies";
 import EngineeringLabs from "../sections/EngineeringLabs";
-import Skills from "../sections/Skills";
 import About from "../sections/About";
 import Contact from "../sections/Contact";
 import SystemThinking from "../sections/SystemThinking";
@@ -17,9 +16,9 @@ export default function AppShell() {
       className="
     min-h-screen text-slate-900 dark:text-slate-100
     bg-white dark:bg-slate-950
-    [background-image:radial-gradient(#e5e7eb_0.8px,transparent_0.8px)]
-    dark:[background-image:radial-gradient(#1f2937_0.8px,transparent_0.8px)]
-    [background-size:24px_24px]
+    [background-image:radial-gradient(#f1f5f9_0.5px,transparent_0.5px)]
+    dark:[background-image:radial-gradient(#1e293b_0.5px,transparent_0.5px)]
+    [background-size:20px_20px]
   "
     >
       <Navbar />
@@ -30,12 +29,11 @@ export default function AppShell() {
         <SystemThinking />
         <CaseStudies />
         <EngineeringLabs />
-        <Skills />
         <About />
         <Contact />
         <FAQ />
       </main>
-
+...
       <Footer />
       <WhatsAppFloat />
     </div>

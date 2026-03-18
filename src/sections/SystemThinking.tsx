@@ -27,32 +27,34 @@ export default function SystemThinking() {
   return (
     <section
       ref={ref}
-      className={`py-16 sm:py-20 reveal ${inView ? "in" : ""}`}
+      className={`py-16 sm:py-20 reveal border-t border-slate-100 dark:border-slate-800/50 ${inView ? "in" : ""}`}
     >
       <Container>
-        <div className="max-w-2xl">
+        <div className="max-w-2xl mb-10">
           <h2 className="text-2xl font-semibold tracking-tight text-slate-900 dark:text-white sm:text-3xl">
             How I think about systems
           </h2>
-          <p className="mt-3 text-slate-600 dark:text-slate-300">
+          <p className="mt-2 text-slate-600 dark:text-slate-400">
             I focus on building backend services and deployments that are
             maintainable, observable, and safe to operate.
           </p>
         </div>
 
         <div
-          className={`mt-10 grid gap-6 md:grid-cols-2 stagger ${inView ? "in" : ""}`}
+          className={`grid grid-cols-1 md:grid-cols-3 gap-4 stagger ${inView ? "in" : ""}`}
         >
           {principles.map((p, i) => (
             <div
               key={p.title}
-              style={{ transitionDelay: `${staggerDelayMs(i, 90)}ms` }}
-              className="rounded-2xl border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-900/40"
+              style={{ transitionDelay: `${staggerDelayMs(i, 80)}ms` }}
+              className={`rounded-xl border border-slate-200 bg-white/50 p-6 dark:border-white/5 dark:bg-slate-900/40 ${
+                i === 0 ? "md:col-span-2" : "md:col-span-1"
+              }`}
             >
-              <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
+              <h3 className="text-lg font-semibold tracking-tight text-slate-900 dark:text-white">
                 {p.title}
               </h3>
-              <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+              <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
                 {p.body}
               </p>
             </div>
