@@ -1,10 +1,10 @@
 import Container from "../components/ui/Container";
 
 const items = [
-  { k: "3+ years", v: "Enterprise support & systems" },
-  { k: "Automation", v: "Python • Bash • workflows" },
-  { k: "Deployments", v: "Docker • CI/CD • cloud" },
-  { k: "Security", v: "Endpoint & cloud security ops" },
+  { k: "4+ projects", v: "Delivered through Codacre" },
+  { k: "100%", v: "On-time delivery" },
+  { k: "EMEA coverage", v: "Enterprise security at TeKnowledge" },
+  { k: "3+ industries", v: "Beauty, education, agriculture" },
 ];
 
 export default function ProofStrip() {

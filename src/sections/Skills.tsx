@@ -74,7 +74,7 @@ export default function Skills() {
               Tech Stack & Proficiency
             </h2>
             <p className="mt-4 text-lg text-slate-600 dark:text-slate-300">
-              Tools mapping the full lifecycle of software—from local orchestration and automated testing to high-availability database administration and TLS offloading.
+              Tools covering the full lifecycle: local orchestration, automated testing, high-availability database administration, and TLS offloading.
             </p>
           </div>
           
@@ -91,8 +91,8 @@ export default function Skills() {
           </div>
         </div>
 
-        <motion.div 
-          className="grid gap-6 md:grid-cols-2 lg:grid-cols-4"
+        <motion.div
+          className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"

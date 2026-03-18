@@ -53,7 +53,7 @@ export const caseStudies: CaseStudy[] = [
     architecture:
       "FastAPI (ASGI) + Uvicorn + Nginx Reverse Proxy on Ubuntu VPS.",
     theWhy: "Chose FastAPI for its native async support to handle concurrent connections efficiently, avoiding blocking I/O during database fetches.",
-    observability: "Monitoring app health and Uptime via custom logging pipelines.",
+    observability: "Monitoring app health and uptime via custom logging pipelines.",
     keyDecisions: [
       "Contract-first API design for frontend decoupling",
       "Nginx reverse proxy for SSL termination and static caching",
@@ -62,14 +62,14 @@ export const caseStudies: CaseStudy[] = [
     infrastructureSpecs: [
       { label: "Process Management", value: "Gunicorn/Uvicorn workers managing FastAPI ASGI processes." },
       { label: "Reverse Proxy", value: "Nginx handling SSL termination and request buffering." },
-      { label: "Database", value: "PostgreSQL with indexed lookups for [User/Course] data." },
+      { label: "Database", value: "PostgreSQL with indexed lookups for user and course data." },
       { label: "Containerization", value: "Multi-stage Docker builds to keep production images lean." },
       { label: "Environment", value: "Hardened Linux (Ubuntu) instance on Hostinger VPS." }
     ],
     operationalHardening: [
       "Configured Nginx access/error logs for request auditing.",
       "Implemented custom FastAPI exception handlers for graceful error states.",
-      "Managed database backups via automated cron-jobs/scripts."
+      "Managed database backups via automated cron-jobs and scripts."
     ],
     ops: [
       "Automated systemd daemon configuration",
@@ -140,17 +140,17 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "vavaspa",
     title: "VavaSpa",
-    subtitle: "Modern SPA with React & Vite Tooling",
+    subtitle: "High-Performance Marketing Site for VavaSpa",
     status: 'Production',
     role: "Lead Frontend Engineer",
     problem:
       "Required a highly performant, accessible single-page application with optimized asset delivery and strict typing.",
     solution:
-      "Engineered a component-driven UI using React/TypeScript. Leveraged Vite for hot-module replacement in dev and heavily optimized ESBuild bundling for production.",
+      "Engineered a component-driven UI using React and TypeScript. Used Vite for hot-module replacement in development and heavily optimized ESBuild bundling for production.",
     impact: [
-      "Type-safe compilation",
-      "Optimized chunk splitting",
-      "Lighthouse 90+ Performance",
+      "3x more client enquiries post-launch",
+      "Delivered in 6 weeks, on schedule",
+      "100% client approval",
     ],
     architecture:
       "React 19 + TypeScript + Vite + Tailwind 4 (CDN-less).",

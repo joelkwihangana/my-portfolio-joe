@@ -12,8 +12,7 @@ export default function Footer() {
               Joel Kwihangana
             </p>
             <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">
-              Backend-focused Fullstack DevOps engineer. I build and operate
-              production systems.
+              Systems Engineer. Full-Stack Developer. DevOps Practitioner. CEO, Codacre.
             </p>
             <p className="mt-3 text-xs text-slate-500 dark:text-slate-400">
               Kigali, Rwanda · Open to roles and collaborations

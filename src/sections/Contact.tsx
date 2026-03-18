@@ -23,15 +23,14 @@ export default function Contact() {
     >
       <Container>
         <div className="rounded-3xl border border-slate-200 bg-white p-8 sm:p-10 dark:border-slate-800 dark:bg-slate-900/40">
-          <div className="grid gap-10 lg:grid-cols-12 lg:items-center">
+          <div className="grid gap-10 lg:grid-cols-12 lg:items-start">
             <div className="lg:col-span-7">
               <h2 className="text-2xl font-semibold tracking-tight text-slate-900 dark:text-white sm:text-3xl">
-                Let’s build and operate real systems
+                Let's build and operate real systems
               </h2>
               <p className="mt-3 text-slate-600 dark:text-slate-300">
-                I’m open to backend-focused Fullstack DevOps roles and serious
-                collaborations. If you need someone who can ship APIs, deploy to
-                Linux VPS, and own production reliability, let’s talk.
+                For engineering roles and direct collaboration, reach me below.
+                For project and freelance work, engage through Codacre.
               </p>
 
               <div className="mt-6 flex flex-wrap items-center gap-3">
@@ -47,23 +46,45 @@ export default function Contact() {
                   rel="noreferrer"
                   className="text-sm font-medium text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white"
                 >
-                  LinkedIn →
+                  LinkedIn
                 </a>
               </div>
 
               <div className="mt-6 flex flex-wrap gap-3 text-sm text-slate-600 dark:text-slate-300">
                 <span>
-                  <span className="font-medium text-slate-900 dark:text-white">
-                    Email:
-                  </span>{" "}
+                  <span className="font-medium text-slate-900 dark:text-white">Email:</span>{" "}
                   {EMAIL}
                 </span>
                 <span>
-                  <span className="font-medium text-slate-900 dark:text-white">
-                    WhatsApp:
-                  </span>{" "}
+                  <span className="font-medium text-slate-900 dark:text-white">WhatsApp:</span>{" "}
                   {PHONE_E164}
                 </span>
+              </div>
+
+              <div className="mt-8 pt-6 border-t border-slate-200 dark:border-slate-800">
+                <p className="text-sm font-semibold text-slate-900 dark:text-white mb-3">
+                  For project work
+                </p>
+                <p className="text-sm text-slate-600 dark:text-slate-300 mb-3">
+                  Codacre is my software agency in Kigali. We design, build, and deliver
+                  websites, systems, and automation for businesses in Rwanda and worldwide.
+                </p>
+                <div className="flex flex-wrap gap-4 text-sm">
+                  <a
+                    href="https://codacre.com"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="font-medium text-emerald-600 hover:text-emerald-700 dark:text-emerald-400 dark:hover:text-emerald-300"
+                  >
+                    codacre.com
+                  </a>
+                  <a
+                    href="mailto:info@codacre.com"
+                    className="font-medium text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white"
+                  >
+                    info@codacre.com
+                  </a>
+                </div>
               </div>
             </div>
 
@@ -80,7 +101,7 @@ export default function Contact() {
                     rel="noreferrer"
                     className="text-sm font-medium text-slate-700 hover:text-slate-900 dark:text-slate-200 dark:hover:text-white"
                   >
-                    Download resume →
+                    Download resume
                   </a>
                   <a
                     href="https://github.com/joelkwihangana"
@@ -88,7 +109,15 @@ export default function Contact() {
                     rel="noreferrer"
                     className="text-sm font-medium text-slate-700 hover:text-slate-900 dark:text-slate-200 dark:hover:text-white"
                   >
-                    GitHub →
+                    GitHub
+                  </a>
+                  <a
+                    href="https://codacre.com"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-sm font-medium text-slate-700 hover:text-slate-900 dark:text-slate-200 dark:hover:text-white"
+                  >
+                    Codacre (project work)
                   </a>
                   <a
                     href="https://earthlinkgroup.com/"
@@ -96,7 +125,7 @@ export default function Contact() {
                     rel="noreferrer"
                     className="text-sm font-medium text-slate-700 hover:text-slate-900 dark:text-slate-200 dark:hover:text-white"
                   >
-                    EarthLink Group (Live) →
+                    EarthLink Group (Live)
                   </a>
                   <a
                     href="https://earthlinkstudy.com/"
@@ -104,7 +133,7 @@ export default function Contact() {
                     rel="noreferrer"
                     className="text-sm font-medium text-slate-700 hover:text-slate-900 dark:text-slate-200 dark:hover:text-white"
                   >
-                    EarthLink Study (Live) →
+                    EarthLink Study (Live)
                   </a>
                 </div>
 

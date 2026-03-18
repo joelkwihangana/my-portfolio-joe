@@ -32,11 +32,25 @@ section[id] {
   transform: translateY(0);
 }
 
+/* FAQ item stagger */
+.stagger-faq > * {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 400ms ease, transform 400ms ease;
+}
+
+.stagger-faq.in > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* Respect accessibility */
 @media (prefers-reduced-motion: reduce) {
   .reveal,
   .stagger > *,
-  .stagger.in > * {
+  .stagger.in > *,
+  .stagger-faq > *,
+  .stagger-faq.in > * {
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;

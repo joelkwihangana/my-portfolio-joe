@@ -26,7 +26,7 @@ export default function EngineeringLabs() {
               Engineering Labs
             </h2>
             <p className="mt-4 text-lg text-slate-600 dark:text-slate-300">
-              Isolated experiments where I master specific infrastructure tools, implement new architectural patterns, and document my learning process.
+              Controlled environments for building with specific tools, testing architectural patterns, and verifying assumptions before applying them in production.
             </p>
           </div>
         </div>
